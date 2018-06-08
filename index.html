@@ -156,7 +156,7 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                3
+                4
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -209,6 +209,180 @@
 
             
             <section id="main">
+    <article id="post-mac下多git账号设置" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/06/08/mac下多git账号设置/">mac下多git账号设置</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fas fa-calendar-alt"></i>
+        <a href="/2018/06/08/mac下多git账号设置/">
+            <time datetime="2018-06-08T09:29:20.000Z" itemprop="datePublished">2018-06-08</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h1 id="清除git的全局设置"><a href="#清除git的全局设置" class="headerlink" title="清除git的全局设置"></a>清除git的全局设置</h1><pre><code>$ git config --global --unset user.name &quot;your_email_prefix&quot;
+$ git config --global --unset user.email &quot;your_email&quot;
+</code></pre><h1 id="创建-SSH密钥"><a href="#创建-SSH密钥" class="headerlink" title="创建 SSH密钥"></a>创建 SSH密钥</h1><pre><code>$ ssh-keygen -t rsa -C &quot;your_email&quot;
+</code></pre><ol>
+<li>可生成任意多个密钥</li>
+<li>your_email为git账号注册邮箱<br><img src="/2018/06/08/mac下多git账号设置/WX20180608-192638@2x.png" alt=""></li>
+</ol>
+<h1 id="配置-ssh-config文件"><a href="#配置-ssh-config文件" class="headerlink" title="配置~/.ssh/config文件"></a>配置~/.ssh/config文件</h1><pre><code>#gitlab
+Host gitlab
+        HostName git.XXXX.com
+        IdentityFile ~/.ssh/gitlab_id_rsa
+
+#github
+Host github
+        HostName github.com
+        IdentityFile ~/.ssh/github_id_rsa
+</code></pre><h1 id="验证连接Git"><a href="#验证连接Git" class="headerlink" title="验证连接Git"></a>验证连接Git</h1><p>连接git命令：</p>
+<pre><code>$ ssh -T git@github.com
+Hi e3gs! You&apos;ve successfully authenticated, but GitHub does not provide shell access.
+
+$ ssh -T git@git.XXXX.com
+Welcome to GitLab, xxxx!
+</code></pre><p>则说明连接成功</p>
+<h1 id="添加公钥到Git账号的SSH设置中"><a href="#添加公钥到Git账号的SSH设置中" class="headerlink" title="添加公钥到Git账号的SSH设置中"></a>添加公钥到Git账号的SSH设置中</h1><p>复制公钥：</p>
+<pre><code>$ pbcopy &lt; ~/.ssh/*_id_rsa.pub
+</code></pre><p>添加SSH Key到Git账户设置中</p>
+<h1 id="设置目录"><a href="#设置目录" class="headerlink" title="设置目录"></a>设置目录</h1><p>对于github账号，如果所有工程都放在一个目录中，比如文件夹名为<code>~/Github</code>则可以如下：</p>
+<pre><code>cd ~/Github
+git init&lt;!--可能不必要--&gt;
+
+git config --local user.name youname
+git config --local user.email youemail@XXX.com 
+
+ssh-agent -s
+ssh-add ~/.ssh/github_id_rsa 
+
+在输入
+ssh -T git@github.com
+应该能收到欢迎语，就ok了
+</code></pre><p>这样针对文件夹的git账号可以随意设置</p>
+<h1 id="设置全局"><a href="#设置全局" class="headerlink" title="设置全局"></a>设置全局</h1><p>如果是办公电脑，有在公司的常用账号的话可以在最外层设置</p>
+<pre><code>git config --global user.name youname
+git config --global user.email youemail@XXX.com 
+
+ssh-agent -s
+ssh-add ~/.ssh/gitlab_id_rsa 
+</code></pre><p>然后出了设置了local的文件夹就都是gitlab账号了</p>
+<p>#git配置的三个级别</p>
+<pre><code>git config —system
+
+git config —global
+
+git config —local
+
+local 对当前仓库的,从优先来说，local最高,其次是global ,由于他针对是当前的用户，最后是system
+</code></pre>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://yoursite.com/2018/06/08/mac下多git账号设置/" data-id="cji5zp3yz000137cmo1u80ven" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-test1" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -254,7 +428,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/06/08/test1/" data-id="cji5pp9670002fecm62gczmii" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://yoursite.com/2018/06/08/test1/" data-id="cji5zp3z5000337cmddg27v6b" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -375,7 +549,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/06/08/test/" data-id="cji5pp9600001fecm3ehjyj2d" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://yoursite.com/2018/06/08/test/" data-id="cji5zp3z3000237cmuqcqxqjd" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -503,7 +677,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/06/06/hello-world/" data-id="cji5pp95q0000fecm91060otb" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://yoursite.com/2018/06/06/hello-world/" data-id="cji5zp3yt000037cmfj0fe6a5" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -592,6 +766,25 @@
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2018/06/08/mac下多git账号设置/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/06/08/mac下多git账号设置/" class="title">mac下多git账号设置</a></p>
+                            <p class="item-date"><time datetime="2018-06-08T09:29:20.000Z" itemprop="datePublished">2018-06-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2018/06/08/test1/" class="thumbnail">
     
     
@@ -657,7 +850,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">3</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">4</span></li></ul>
         </div>
     </div>
 
