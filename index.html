@@ -208,9 +208,43 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -310,201 +344,24 @@
       
         
           
-            <ul>
-<li>以下环境为Mac，默认已具备安装环境Node、Git</li>
-</ul>
-<h1 id="配置Hexo"><a href="#配置Hexo" class="headerlink" title="配置Hexo"></a>配置Hexo</h1><h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><pre><code>npm install hexo-cli -g
-npm install hexo --save
-</code></pre><p>运行以下显示对应版本说明安装成功</p>
-<pre><code>hexo -v
-</code></pre><h2 id="初始化Hexo"><a href="#初始化Hexo" class="headerlink" title="初始化Hexo"></a>初始化Hexo</h2><pre><code>hexo init
-npm install
-</code></pre><h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><pre><code>hexo g
-hexo s
-INFO  Hexo is running at http://0.0.0.0:4000/. Press Ctrl+C to stop.
-</code></pre><p>打开<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a>    即可看到效果</p>
-<h2 id="设置主题"><a href="#设置主题" class="headerlink" title="设置主题"></a>设置主题</h2><ul>
-<li><a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="noopener">在这里选择自己喜欢的主题</a></li>
-<li>在<code>_config.yml</code>中修改theme为对应的主题即可<code>theme: icarus</code>    </li>
-<li><p>然后执行<code>hexo clea</code>，<code>hexo g</code></p>
-</li>
-<li><p>关于<code>_config.yml</code>中更多设置可以参考<a href="https://hexo.io/docs/configuration.html" target="_blank" rel="noopener">config</a></p>
-</li>
-</ul>
-<pre><code># Hexo Configuration
-## Docs: https://hexo.io/docs/configuration.html
-## Source: https://github.com/hexojs/hexo/
-
-# Site
-title: 海之声 #主页标题
-subtitle: 参差多态乃是幸福本源 #副标题
-description: 参差多态乃是幸福本源 # 网站描述，可以加一句自己喜欢的座右铭
-author: haiyusun #作者，左下角显示
-avatar: /images/avatar.jpg #设置头像，放在\themes\next\source\images里
-language: zh-Hans # 选择中文简体
-timezone:
-since: 2016 #建站日期，左下角显示
-
-# 多说 ShortName
-duoshuo_shortname: your_username # 多说评论，后面填写用户名
-# 百度分析
-baidu_analytics: your_id # 填写自己获得的id
-
-# Social links
-social:
-  Github: https://github.com/haiyusun
-  Email: mailto:haiyu19931121@163.com
-
-# title, chinese available
-links_title: 友情链接
-# links
-links:
-  我的简书: http://www.jianshu.com/users/4943cb2c6ea4
-
-# URL
-## If your site is put in a subdirectory, set url as &apos;http://yoursite.com/child&apos; and root as &apos;/child/&apos;
-url: http://haiyusun.github.io/ #填自己的github pages网址
-root: /
-permalink: :year/:month/:day/:title/
-permalink_defaults:
-# 本地搜索
-search:
-  path: search.xml
-  field: post
-
-# Directory
-source_dir: source
-public_dir: public
-tag_dir: tags
-archive_dir: archives
-category_dir: categories
-code_dir: downloads/code
-i18n_dir: :lang
-skip_render:
-
-# Writing
-new_post_name: :title.md # File name of new posts
-default_layout: post
-titlecase: false # Transform title into titlecase
-external_link: true # Open external links in new tab
-filename_case: 0
-render_drafts: false
-post_asset_folder: false
-relative_link: false
-future: true
-# 语法高亮
-highlight:
-  enable: true
-  line_number: true
-  auto_detect: true
-  tab_replace:
-
-# Category &amp; Tag
-default_category: uncategorized
-category_map:
-tag_map:
-
-# Date / Time format
-## Hexo uses Moment.js to parse and display date
-## You can customize the date format as defined in
-## http://momentjs.com/docs/#/displaying/format/
-date_format: YYYY-MM-DD
-time_format: HH:mm:ss
-
-# Pagination
-## Set per_page to 0 to disable pagination
-per_page: 10
-pagination_dir: page
-
-# Extensions
-## Plugins: https://hexo.io/plugins/
-## Themes: https://hexo.io/themes/
-# 百度网站地图
-plugins:
-baidusitemap: # 需要安装插件 npm install hexo-generator-baidu-sitemap@0.1.1 --save
-  path: baidusitemap.xml
-
-# 主题切换
-theme: next
-# RSS订阅
-feed:
-  type: atom
-  path: atom.xml
-  limit: 0
-
-# Deployment
-## Docs: https://hexo.io/docs/deployment.html
-deploy:
-    type: git
-    repo: git@github.com:your-username/haiyusun.github.io.git
-    branch: master
-
-# ---------------下面选项需要对应插件的支持---------------
-# npm install hexo-generator-index --save
-# npm install hexo-generator-archive --save
-# npm install hexo-generator-category --save
-# npm install hexo-generator-tag --save
-
-index_generator:
-  per_page: 10 ##首页默认10篇文章标题 如果值为0不分页
-
-archive_generator:
-  per_page: 20 ##归档页面默认20篇文章标题
-  yearly: true  ##生成年视图
-  monthly: true ##生成月视图
-
-tag_generator:
-  per_page: 10 ##标签分类页面默认10篇文章
-
-category_generator:
-  per_page: 10 ###分类页面默认10篇文章
-</code></pre><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><pre><code>hexo n          # 新建文章，在\source\_posts文件夹里
-hexo new page   # 新建页面，比如想在导航栏新增一个“关于我”的页面
-hexo clean      # 清除本地的数据库和生成的public文件夹
-hexo g          # 生成博客文件
-hexo s          # 运行在本地浏览器，可当预览使用
-hexo d          # 部署博客到Github等
-</code></pre><ul>
-<li><p>键入hexo n “name”即可在\source_posts文件夹里生成name.md的Markdown文件，结构如下</p>
-<pre><code>---
-title: HelloWorld！ # 文章页面上的显示名称，可以任意修改，不会出现在URL中
-date: 2015-11-09 15:56:26 # 文章生成时间，一般不改
-categories:   # 文章分类目录，参数可省略
-    - 随笔 # 此为一级目录
-    - 瞬间 # 此为二级目录
-    - 关于 # 此为三级目录
-tags:   # 文章标签，参数可省略
-    - hexo
-    - blog # 个数不限，单个可直接跟在tags后面
----
-这里开始是正文
-</code></pre></li>
-</ul>
-<ul>
-<li>如果想生成的文件默认带categories，那么打开根目录下<code>\scaffolds\post.md</code>新增一行<code>categories :</code>就修改好了模板文件。如果想在主页中以摘要形式显示你的文章，要么正文中加入<code></code>即可屏蔽该语句下面的内容。</li>
-</ul>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>详情参考<a href="https://www.jianshu.com/p/2b09156ee5b1" target="_blank" rel="noopener">这里</a></p>
-<h3 id="部署到Github-Pages"><a href="#部署到Github-Pages" class="headerlink" title="部署到Github Pages"></a>部署到Github Pages</h3><ul>
-<li><p>修改<code>_config.yml</code>配置</p>
-<p>  deploy:</p>
-<pre><code>type: git
-# 填上你自己的仓库名，注意后面有`.git`
-repository: git@github.com:your_username/your_username.github.io.git 
-branch: master
-</code></pre></li>
-<li><p>安装插件</p>
-<pre><code>npm install hexo-deployer-git --save  
-</code></pre></li>
-</ul>
-<ul>
-<li><p>发布</p>
-<pre><code>hexo clean
-hexo g
-hexo d
-</code></pre></li>
-</ul>
-
           
+以下环境为Mac，默认已具备安装环境Node、Git
+
+配置Hexo安装Hexonpm install hexo-cli -g
+npm install hexo --save
+运行以下显示对应版本说明安装成功
+hexo -v
+初始化Hexohexo init
+npm install
+运行hexo 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/06/11/hexo博客搭建及更新操作步骤/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -622,62 +479,17 @@ hexo d
       
         
           
-            <h1 id="清除git的全局设置"><a href="#清除git的全局设置" class="headerlink" title="清除git的全局设置"></a>清除git的全局设置</h1><pre><code>$ git config --global --unset user.name &quot;your_email_prefix&quot;
+          清除git的全局设置$ git config --global --unset user.name &quot;your_email_prefix&quot;
 $ git config --global --unset user.email &quot;your_email&quot;
-</code></pre><h1 id="创建-SSH密钥"><a href="#创建-SSH密钥" class="headerlink" title="创建 SSH密钥"></a>创建 SSH密钥</h1><pre><code>$ ssh-keygen -t rsa -C &quot;your_email&quot;
-</code></pre><ol>
-<li>可生成任意多个密钥</li>
-<li>your_email为git账号注册邮箱<br><img src="/2018/06/08/mac下多git账号设置/WX20180608-192638@2x.png" alt=""></li>
-</ol>
-<h1 id="配置-ssh-config文件"><a href="#配置-ssh-config文件" class="headerlink" title="配置~/.ssh/config文件"></a>配置~/.ssh/config文件</h1><pre><code>#gitlab
-Host gitlab
-        HostName git.XXXX.com
-        IdentityFile ~/.ssh/gitlab_id_rsa
-
-#github
-Host github
-        HostName github.com
-        IdentityFile ~/.ssh/github_id_rsa
-</code></pre><h1 id="验证连接Git"><a href="#验证连接Git" class="headerlink" title="验证连接Git"></a>验证连接Git</h1><p>连接git命令：</p>
-<pre><code>$ ssh -T git@github.com
-Hi e3gs! You&apos;ve successfully authenticated, but GitHub does not provide shell access.
-
-$ ssh -T git@git.XXXX.com
-Welcome to GitLab, xxxx!
-</code></pre><p>则说明连接成功</p>
-<h1 id="添加公钥到Git账号的SSH设置中"><a href="#添加公钥到Git账号的SSH设置中" class="headerlink" title="添加公钥到Git账号的SSH设置中"></a>添加公钥到Git账号的SSH设置中</h1><p>复制公钥：</p>
-<pre><code>$ pbcopy &lt; ~/.ssh/*_id_rsa.pub
-</code></pre><p>添加SSH Key到Git账户设置中</p>
-<h1 id="设置目录"><a href="#设置目录" class="headerlink" title="设置目录"></a>设置目录</h1><p>对于github账号，如果所有工程都放在一个目录中，比如文件夹名为<code>~/Github</code>则可以如下：</p>
-<pre><code>cd ~/Github
-git init&lt;!--可能不必要--&gt;
-
-git config --local user.name youname
-git config --local user.email youemail@XXX.com 
-
-ssh-agent -s
-ssh-add ~/.ssh/github_id_rsa 
-
-在输入
-ssh -T git@github.com
-应该能收到欢迎语，就ok了
-</code></pre><p>这样针对文件夹的git账号可以随意设置</p>
-<h1 id="设置全局"><a href="#设置全局" class="headerlink" title="设置全局"></a>设置全局</h1><p>如果是办公电脑，有在公司的常用账号的话可以在最外层设置</p>
-<pre><code>git config --global user.name youname
-git config --global user.email youemail@XXX.com 
-
-ssh-agent -s
-ssh-add ~/.ssh/gitlab_id_rsa 
-</code></pre><p>然后出了设置了local的文件夹就都是gitlab账号了</p>
-<h1 id="git配置的三个级别"><a href="#git配置的三个级别" class="headerlink" title="git配置的三个级别"></a>git配置的三个级别</h1><pre><code>git config —system
-
-git config —global
-
-git config —local
-
-local 对当前仓库的,从优先来说，local最高,其次是global ,由于他针对是当前的用户，最后是system
-</code></pre>
-          
+创建 SSH
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/06/08/mac下多git账号设置/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -795,259 +607,17 @@ local 对当前仓库的,从优先来说，local最高,其次是global ,由于�
       
         
           
-            <p>picture</p>
-<p><img src="/2018/06/08/test1/WX20180608-160706@2x.png" alt="图片"></p>
+          picture
+
 
           
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://e3gs.github.io/2018/06/08/test/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="e3gs">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HOLY">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/08/test/" itemprop="url">test</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-08T15:59:53+08:00">
-                2018-06-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><code>picture</code></p>
-<p><img src="/2018/06/08/test/img/WX20180608-160706@2x.png" alt=""></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://e3gs.github.io/2018/06/06/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="e3gs">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HOLY">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/06/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-06T17:08:20+08:00">
-                2018-06-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/06/08/test1/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1128,7 +698,7 @@ local 对当前仓库的,从优先来说，local最高,其次是global ,由于�
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1331,6 +901,323 @@ local 对当前仓库的,从优先来说，local最高,其次是global ,由于�
 
 
   
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
 
 
 
