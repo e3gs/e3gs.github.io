@@ -79,19 +79,17 @@
 
 
 
-<meta name="description" content="清除git的全局设置$ git config --global --unset user.name &amp;quot;your_email_prefix&amp;quot; $ git config --global --unset user.email &amp;quot;your_email&amp;quot; 创建 SSH密钥$ ssh-keygen -t rsa -C &amp;quot;your_email&amp;quot;  可">
+<meta name="description" content="Spirng boot 经常只用来部署服务，最近需要在项目中添加静态H5页面，发现并没有那么顺利，所以整理一下">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mac下多git账号设置">
-<meta property="og:url" content="https://e3gs.github.io/2018/06/08/mac下多git账号设置/index.html">
+<meta property="og:title" content="boot之一：静态页面配置及打包">
+<meta property="og:url" content="https://e3gs.github.io/2018/06/25/boot之一：静态页面配置及打包/index.html">
 <meta property="og:site_name" content="HOLY">
-<meta property="og:description" content="清除git的全局设置$ git config --global --unset user.name &amp;quot;your_email_prefix&amp;quot; $ git config --global --unset user.email &amp;quot;your_email&amp;quot; 创建 SSH密钥$ ssh-keygen -t rsa -C &amp;quot;your_email&amp;quot;  可">
+<meta property="og:description" content="Spirng boot 经常只用来部署服务，最近需要在项目中添加静态H5页面，发现并没有那么顺利，所以整理一下">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://e3gs.github.io/2018/06/08/mac下多git账号设置/WX20180608-192638@2x.png">
-<meta property="og:updated_time" content="2018-07-16T07:12:16.971Z">
+<meta property="og:updated_time" content="2018-06-25T08:32:13.449Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mac下多git账号设置">
-<meta name="twitter:description" content="清除git的全局设置$ git config --global --unset user.name &amp;quot;your_email_prefix&amp;quot; $ git config --global --unset user.email &amp;quot;your_email&amp;quot; 创建 SSH密钥$ ssh-keygen -t rsa -C &amp;quot;your_email&amp;quot;  可">
-<meta name="twitter:image" content="https://e3gs.github.io/2018/06/08/mac下多git账号设置/WX20180608-192638@2x.png">
+<meta name="twitter:title" content="boot之一：静态页面配置及打包">
+<meta name="twitter:description" content="Spirng boot 经常只用来部署服务，最近需要在项目中添加静态H5页面，发现并没有那么顺利，所以整理一下">
 
 
 
@@ -121,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="https://e3gs.github.io/2018/06/08/mac下多git账号设置/"/>
+  <link rel="canonical" href="https://e3gs.github.io/2018/06/25/boot之一：静态页面配置及打包/"/>
 
 
 
 
 
-  <title>mac下多git账号设置 | HOLY</title>
+  <title>boot之一：静态页面配置及打包 | HOLY</title>
   
 
 
@@ -278,7 +276,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://e3gs.github.io/2018/06/08/mac下多git账号设置/">
+    <link itemprop="mainEntityOfPage" href="https://e3gs.github.io/2018/06/25/boot之一：静态页面配置及打包/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="e3gs">
@@ -295,7 +293,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">mac下多git账号设置</h1>
+          <h1 class="post-title" itemprop="name headline">boot之一：静态页面配置及打包</h1>
         
 
         <div class="post-meta">
@@ -307,8 +305,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-08T17:29:20+08:00">
-                2018-06-08
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-25T16:20:38+08:00">
+                2018-06-25
               </time>
             
 
@@ -345,70 +343,7 @@
       
 
       
-        <h1 id="清除git的全局设置"><a href="#清除git的全局设置" class="headerlink" title="清除git的全局设置"></a>清除git的全局设置</h1><pre><code>$ git config --global --unset user.name &quot;your_email_prefix&quot;
-$ git config --global --unset user.email &quot;your_email&quot;
-</code></pre><h1 id="创建-SSH密钥"><a href="#创建-SSH密钥" class="headerlink" title="创建 SSH密钥"></a>创建 SSH密钥</h1><pre><code>$ ssh-keygen -t rsa -C &quot;your_email&quot;
-</code></pre><ol>
-<li>可生成任意多个密钥</li>
-<li>your_email为git账号注册邮箱<br><img src="/2018/06/08/mac下多git账号设置/WX20180608-192638@2x.png" alt=""></li>
-</ol>
-<h1 id="配置-ssh-config文件"><a href="#配置-ssh-config文件" class="headerlink" title="配置~/.ssh/config文件"></a>配置~/.ssh/config文件</h1><pre><code>#gitlab
-Host gitlab
-        HostName git.XXXX.com
-        IdentityFile ~/.ssh/gitlab_id_rsa
-
-#github
-Host github
-        HostName github.com
-        IdentityFile ~/.ssh/github_id_rsa
-</code></pre><h1 id="验证连接Git"><a href="#验证连接Git" class="headerlink" title="验证连接Git"></a>验证连接Git</h1><p>连接git命令：</p>
-<pre><code>$ ssh -T git@github.com
-Hi e3gs! You&apos;ve successfully authenticated, but GitHub does not provide shell access.
-
-$ ssh -T git@git.XXXX.com
-Welcome to GitLab, xxxx!
-</code></pre><p>则说明连接成功</p>
-<h1 id="添加公钥到Git账号的SSH设置中"><a href="#添加公钥到Git账号的SSH设置中" class="headerlink" title="添加公钥到Git账号的SSH设置中"></a>添加公钥到Git账号的SSH设置中</h1><p>复制公钥：</p>
-<pre><code>$ pbcopy &lt; ~/.ssh/*_id_rsa.pub
-</code></pre><p>添加SSH Key到Git账户设置中</p>
-<h1 id="设置目录"><a href="#设置目录" class="headerlink" title="设置目录"></a>设置目录</h1><p>对于github账号，如果所有工程都放在一个目录中，比如文件夹名为<code>~/Github</code>则可以如下：</p>
-<pre><code>cd ~/Github
-git init&lt;!--可能不必要--&gt;
-
-git config --local user.name youname
-git config --local user.email youemail@XXX.com 
-
-ssh-agent -s
-ssh-add ~/.ssh/github_id_rsa 
-
-在输入
-ssh -T git@github.com
-应该能收到欢迎语，就ok了
-</code></pre><p>这样针对文件夹的git账号可以随意设置</p>
-<h1 id="设置全局"><a href="#设置全局" class="headerlink" title="设置全局"></a>设置全局</h1><p>如果是办公电脑，有在公司的常用账号的话可以在最外层设置</p>
-<pre><code>git config --global user.name youname
-git config --global user.email youemail@XXX.com 
-
-ssh-agent -s
-ssh-add ~/.ssh/gitlab_id_rsa 
-</code></pre><p>然后出了设置了local的文件夹就都是gitlab账号了</p>
-<h1 id="git配置的三个级别"><a href="#git配置的三个级别" class="headerlink" title="git配置的三个级别"></a>git配置的三个级别</h1><pre><code>git config —system
-
-git config —global
-
-git config —local
-
-local 对当前仓库的,从优先来说，local最高,其次是global ,由于他针对是当前的用户，最后是system
-</code></pre><h1 id="补充（20180716）"><a href="#补充（20180716）" class="headerlink" title="补充（20180716）"></a>补充（20180716）</h1><p>最近git账号突然不好使了，排查了下原因。原来<code>ssh-add</code>命令只是把专用密钥添加到ssh-agent的高速缓存中。重启电脑就需要重新配置了。</p>
-<p>想要配置后永久生效，只要添加<code>AddKeysToAgent</code>和<code>UseKeychain</code>字段，修改<code>~/.ssh/config</code>文件为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#gitlab</span><br><span class="line">Host gitlab</span><br><span class="line">        HostName git.XXXX.com</span><br><span class="line">#        ServerAliveInterval 60</span><br><span class="line">        AddKeysToAgent yes</span><br><span class="line">        UseKeychain yes</span><br><span class="line">        PreferredAuthentications publickey</span><br><span class="line">        IdentityFile ~/.ssh/gitlab_id_rsa</span><br><span class="line">#        ForwardAgent yes</span><br><span class="line">	</span><br><span class="line">#github</span><br><span class="line">Host github</span><br><span class="line">        HostName github.com</span><br><span class="line">        AddKeysToAgent yes</span><br><span class="line">        UseKeychain yes</span><br><span class="line">        PreferredAuthentications publickey</span><br><span class="line">        IdentityFile ~/.ssh/github_id_rsa</span><br></pre></td></tr></table></figure>
-<p>字段说明：</p>
-<ol>
-<li>AddKeysToAgent yes，就是把自己的 SSH Key 添加到 ssh-agent 里面使用。</li>
-<li>ForwardAgent yes，使用 ssh-agent 转发。</li>
-<li>UseKeychain yes，把 SSH Key 添加到系统的钥匙链里。这样就不需要每次手工把 SSH Key 添加到 ssh-agent 里面了。</li>
-<li>IdentityFile ~/.ssh/id_rsa，设置了密钥的位置。</li>
-</ol>
+        <p>Spirng boot 经常只用来部署服务，最近需要在项目中添加静态H5页面，发现并没有那么顺利，所以整理一下</p>
 
       
     </div>
@@ -433,8 +368,8 @@ local 对当前仓库的,从优先来说，local最高,其次是global ,由于�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/08/test1/" rel="next" title="test1">
-                <i class="fa fa-chevron-left"></i> test1
+              <a href="/2018/06/11/hexo博客搭建及更新操作步骤/" rel="next" title="hexo博客搭建及更新操作步骤">
+                <i class="fa fa-chevron-left"></i> hexo博客搭建及更新操作步骤
               </a>
             
           </div>
@@ -443,8 +378,8 @@ local 对当前仓库的,从优先来说，local最高,其次是global ,由于�
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/06/11/hexo博客搭建及更新操作步骤/" rel="prev" title="hexo博客搭建及更新操作步骤">
-                hexo博客搭建及更新操作步骤 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/07/09/Spring-Boot基础知识/" rel="prev" title="Spring Boot基础知识">
+                Spring Boot基础知识 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -503,17 +438,8 @@ local 对当前仓库的,从优先来说，local最高,其次是global ,由于�
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -555,22 +481,6 @@ local 对当前仓库的,从优先来说，local最高,其次是global ,由于�
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#清除git的全局设置"><span class="nav-number">1.</span> <span class="nav-text">清除git的全局设置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建-SSH密钥"><span class="nav-number">2.</span> <span class="nav-text">创建 SSH密钥</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置-ssh-config文件"><span class="nav-number">3.</span> <span class="nav-text">配置~/.ssh/config文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#验证连接Git"><span class="nav-number">4.</span> <span class="nav-text">验证连接Git</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#添加公钥到Git账号的SSH设置中"><span class="nav-number">5.</span> <span class="nav-text">添加公钥到Git账号的SSH设置中</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设置目录"><span class="nav-number">6.</span> <span class="nav-text">设置目录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设置全局"><span class="nav-number">7.</span> <span class="nav-text">设置全局</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#git配置的三个级别"><span class="nav-number">8.</span> <span class="nav-text">git配置的三个级别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#补充（20180716）"><span class="nav-number">9.</span> <span class="nav-text">补充（20180716）</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

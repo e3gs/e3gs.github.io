@@ -79,19 +79,17 @@
 
 
 
-<meta name="description" content="清除git的全局设置$ git config --global --unset user.name &amp;quot;your_email_prefix&amp;quot; $ git config --global --unset user.email &amp;quot;your_email&amp;quot; 创建 SSH密钥$ ssh-keygen -t rsa -C &amp;quot;your_email&amp;quot;  可">
+<meta name="description" content="Spring框架的本质Spring IoC（Inversion Of Control）IoC有两种形式，DI（Dependency Injection）和DL(Dependency Lookup) Spring IoC指的是Spring框架提供的IoC容器实现（IoC Container） 常用的类似context.getBean(...)，做的就是DL的工作。 Spring IoC容器的DI工作">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mac下多git账号设置">
-<meta property="og:url" content="https://e3gs.github.io/2018/06/08/mac下多git账号设置/index.html">
+<meta property="og:title" content="Spring Boot基础知识">
+<meta property="og:url" content="https://e3gs.github.io/2018/07/09/Spring-Boot基础知识/index.html">
 <meta property="og:site_name" content="HOLY">
-<meta property="og:description" content="清除git的全局设置$ git config --global --unset user.name &amp;quot;your_email_prefix&amp;quot; $ git config --global --unset user.email &amp;quot;your_email&amp;quot; 创建 SSH密钥$ ssh-keygen -t rsa -C &amp;quot;your_email&amp;quot;  可">
+<meta property="og:description" content="Spring框架的本质Spring IoC（Inversion Of Control）IoC有两种形式，DI（Dependency Injection）和DL(Dependency Lookup) Spring IoC指的是Spring框架提供的IoC容器实现（IoC Container） 常用的类似context.getBean(...)，做的就是DL的工作。 Spring IoC容器的DI工作">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://e3gs.github.io/2018/06/08/mac下多git账号设置/WX20180608-192638@2x.png">
-<meta property="og:updated_time" content="2018-07-16T07:12:16.971Z">
+<meta property="og:updated_time" content="2018-07-18T03:21:01.217Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mac下多git账号设置">
-<meta name="twitter:description" content="清除git的全局设置$ git config --global --unset user.name &amp;quot;your_email_prefix&amp;quot; $ git config --global --unset user.email &amp;quot;your_email&amp;quot; 创建 SSH密钥$ ssh-keygen -t rsa -C &amp;quot;your_email&amp;quot;  可">
-<meta name="twitter:image" content="https://e3gs.github.io/2018/06/08/mac下多git账号设置/WX20180608-192638@2x.png">
+<meta name="twitter:title" content="Spring Boot基础知识">
+<meta name="twitter:description" content="Spring框架的本质Spring IoC（Inversion Of Control）IoC有两种形式，DI（Dependency Injection）和DL(Dependency Lookup) Spring IoC指的是Spring框架提供的IoC容器实现（IoC Container） 常用的类似context.getBean(...)，做的就是DL的工作。 Spring IoC容器的DI工作">
 
 
 
@@ -121,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="https://e3gs.github.io/2018/06/08/mac下多git账号设置/"/>
+  <link rel="canonical" href="https://e3gs.github.io/2018/07/09/Spring-Boot基础知识/"/>
 
 
 
 
 
-  <title>mac下多git账号设置 | HOLY</title>
+  <title>Spring Boot基础知识 | HOLY</title>
   
 
 
@@ -278,7 +276,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://e3gs.github.io/2018/06/08/mac下多git账号设置/">
+    <link itemprop="mainEntityOfPage" href="https://e3gs.github.io/2018/07/09/Spring-Boot基础知识/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="e3gs">
@@ -295,7 +293,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">mac下多git账号设置</h1>
+          <h1 class="post-title" itemprop="name headline">Spring Boot基础知识</h1>
         
 
         <div class="post-meta">
@@ -307,8 +305,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-08T17:29:20+08:00">
-                2018-06-08
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-09T14:29:27+08:00">
+                2018-07-09
               </time>
             
 
@@ -345,70 +343,62 @@
       
 
       
-        <h1 id="清除git的全局设置"><a href="#清除git的全局设置" class="headerlink" title="清除git的全局设置"></a>清除git的全局设置</h1><pre><code>$ git config --global --unset user.name &quot;your_email_prefix&quot;
-$ git config --global --unset user.email &quot;your_email&quot;
-</code></pre><h1 id="创建-SSH密钥"><a href="#创建-SSH密钥" class="headerlink" title="创建 SSH密钥"></a>创建 SSH密钥</h1><pre><code>$ ssh-keygen -t rsa -C &quot;your_email&quot;
-</code></pre><ol>
-<li>可生成任意多个密钥</li>
-<li>your_email为git账号注册邮箱<br><img src="/2018/06/08/mac下多git账号设置/WX20180608-192638@2x.png" alt=""></li>
-</ol>
-<h1 id="配置-ssh-config文件"><a href="#配置-ssh-config文件" class="headerlink" title="配置~/.ssh/config文件"></a>配置~/.ssh/config文件</h1><pre><code>#gitlab
-Host gitlab
-        HostName git.XXXX.com
-        IdentityFile ~/.ssh/gitlab_id_rsa
-
-#github
-Host github
-        HostName github.com
-        IdentityFile ~/.ssh/github_id_rsa
-</code></pre><h1 id="验证连接Git"><a href="#验证连接Git" class="headerlink" title="验证连接Git"></a>验证连接Git</h1><p>连接git命令：</p>
-<pre><code>$ ssh -T git@github.com
-Hi e3gs! You&apos;ve successfully authenticated, but GitHub does not provide shell access.
-
-$ ssh -T git@git.XXXX.com
-Welcome to GitLab, xxxx!
-</code></pre><p>则说明连接成功</p>
-<h1 id="添加公钥到Git账号的SSH设置中"><a href="#添加公钥到Git账号的SSH设置中" class="headerlink" title="添加公钥到Git账号的SSH设置中"></a>添加公钥到Git账号的SSH设置中</h1><p>复制公钥：</p>
-<pre><code>$ pbcopy &lt; ~/.ssh/*_id_rsa.pub
-</code></pre><p>添加SSH Key到Git账户设置中</p>
-<h1 id="设置目录"><a href="#设置目录" class="headerlink" title="设置目录"></a>设置目录</h1><p>对于github账号，如果所有工程都放在一个目录中，比如文件夹名为<code>~/Github</code>则可以如下：</p>
-<pre><code>cd ~/Github
-git init&lt;!--可能不必要--&gt;
-
-git config --local user.name youname
-git config --local user.email youemail@XXX.com 
-
-ssh-agent -s
-ssh-add ~/.ssh/github_id_rsa 
-
-在输入
-ssh -T git@github.com
-应该能收到欢迎语，就ok了
-</code></pre><p>这样针对文件夹的git账号可以随意设置</p>
-<h1 id="设置全局"><a href="#设置全局" class="headerlink" title="设置全局"></a>设置全局</h1><p>如果是办公电脑，有在公司的常用账号的话可以在最外层设置</p>
-<pre><code>git config --global user.name youname
-git config --global user.email youemail@XXX.com 
-
-ssh-agent -s
-ssh-add ~/.ssh/gitlab_id_rsa 
-</code></pre><p>然后出了设置了local的文件夹就都是gitlab账号了</p>
-<h1 id="git配置的三个级别"><a href="#git配置的三个级别" class="headerlink" title="git配置的三个级别"></a>git配置的三个级别</h1><pre><code>git config —system
-
-git config —global
-
-git config —local
-
-local 对当前仓库的,从优先来说，local最高,其次是global ,由于他针对是当前的用户，最后是system
-</code></pre><h1 id="补充（20180716）"><a href="#补充（20180716）" class="headerlink" title="补充（20180716）"></a>补充（20180716）</h1><p>最近git账号突然不好使了，排查了下原因。原来<code>ssh-add</code>命令只是把专用密钥添加到ssh-agent的高速缓存中。重启电脑就需要重新配置了。</p>
-<p>想要配置后永久生效，只要添加<code>AddKeysToAgent</code>和<code>UseKeychain</code>字段，修改<code>~/.ssh/config</code>文件为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#gitlab</span><br><span class="line">Host gitlab</span><br><span class="line">        HostName git.XXXX.com</span><br><span class="line">#        ServerAliveInterval 60</span><br><span class="line">        AddKeysToAgent yes</span><br><span class="line">        UseKeychain yes</span><br><span class="line">        PreferredAuthentications publickey</span><br><span class="line">        IdentityFile ~/.ssh/gitlab_id_rsa</span><br><span class="line">#        ForwardAgent yes</span><br><span class="line">	</span><br><span class="line">#github</span><br><span class="line">Host github</span><br><span class="line">        HostName github.com</span><br><span class="line">        AddKeysToAgent yes</span><br><span class="line">        UseKeychain yes</span><br><span class="line">        PreferredAuthentications publickey</span><br><span class="line">        IdentityFile ~/.ssh/github_id_rsa</span><br></pre></td></tr></table></figure>
-<p>字段说明：</p>
+        <h1 id="Spring框架的本质"><a href="#Spring框架的本质" class="headerlink" title="Spring框架的本质"></a>Spring框架的本质</h1><h2 id="Spring-IoC（Inversion-Of-Control）"><a href="#Spring-IoC（Inversion-Of-Control）" class="headerlink" title="Spring IoC（Inversion Of Control）"></a>Spring IoC（Inversion Of Control）</h2><p>IoC有两种形式，DI（Dependency Injection）和DL(Dependency Lookup)</p>
+<p>Spring IoC指的是Spring框架提供的IoC容器实现（IoC Container）</p>
+<p>常用的类似<code>context.getBean(...)</code>，做的就是DL的工作。</p>
+<p>Spring IoC容器的DI工作可以分为两个阶段：</p>
 <ol>
-<li>AddKeysToAgent yes，就是把自己的 SSH Key 添加到 ssh-agent 里面使用。</li>
-<li>ForwardAgent yes，使用 ssh-agent 转发。</li>
-<li>UseKeychain yes，把 SSH Key 添加到系统的钥匙链里。这样就不需要每次手工把 SSH Key 添加到 ssh-agent 里面了。</li>
-<li>IdentityFile ~/.ssh/id_rsa，设置了密钥的位置。</li>
+<li>收集和注册：<em>通过XML或Java代码方式定义一些bean，通过手动组装或让容器基于某些机制自动扫描将这些bean收集到IoC容器中</em></li>
+<li>分析和组装：<em>当第一步完成，可以认为IoC容器中充斥着一个个独立的bean，</em></li>
 </ol>
+<h2 id="JavaConfig"><a href="#JavaConfig" class="headerlink" title="JavaConfig"></a>JavaConfig</h2><p>基于JavaConfig方式的依赖关系绑定描述基本上映射了早期基于XML的配置方式。</p>
+<ol>
+<li>任何标注了<code>@Configuration</code>的Java类定义都是一个JavaConfig配置类。</li>
+<li>任何标注了<code>@Bean</code>的方法，其返回值将作为一个bean定义注册到IoC容器，方法名将默认成为该bean定义的id。</li>
+</ol>
+<h2 id="其他Annotation"><a href="#其他Annotation" class="headerlink" title="其他Annotation"></a>其他Annotation</h2><ol>
+<li>@ComponentScan:对应XML中的<a href="context:compoment-scan" target="_blank" rel="noopener">context:compoment-scan</a>元素，用于配合一些元信息Java Annotation。</li>
+<li>@PropertyScource和@PropertyScources。用于加载*.properties文件内容。</li>
+<li>@Import和@ImportResource,用于将多个分开的容器配置合到一个配置中</li>
+</ol>
+<h1 id="SpringBoot工作机制"><a href="#SpringBoot工作机制" class="headerlink" title="SpringBoot工作机制"></a>SpringBoot工作机制</h1><p>SpringBoot 是Spring框架对“约定优于配置（Convention Over Configuration）”理念的最佳实践的产物。<br>一个SpringBoot应用就是一个基于Spring框架的应用。</p>
+<h2 id="初体验"><a href="#初体验" class="headerlink" title="初体验"></a>初体验</h2><p>一个SpringBoot启动类代码如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;</span><br><span class="line"></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Starter</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(Starter.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>下面分析其中@SpringBootApplication和SpringApplication.run</p>
+<h2 id="SpringBootApplication"><a href="#SpringBootApplication" class="headerlink" title="@SpringBootApplication"></a>@SpringBootApplication</h2><p>@SpringBootApplication实际是一个复合Annotation，<br>其中重要的只有三个：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootConfiguration</span></span><br><span class="line"><span class="meta">@EnableAutoConfiguration</span></span><br><span class="line"><span class="meta">@ComponentScan</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="SpringBootConfiguration"><a href="#SpringBootConfiguration" class="headerlink" title="@SpringBootConfiguration"></a>@SpringBootConfiguration</h2><p>启动类标注了@Configuration，所以其也是一个IoC容器配置类。</p>
+<h2 id="EnableAutoConfiguration"><a href="#EnableAutoConfiguration" class="headerlink" title="@EnableAutoConfiguration"></a>@EnableAutoConfiguration</h2><p>Spring 中@Enable开头的Annotation的定义？借助@Import的支持收集和注册特定场景相关的bean定义。</p>
+<p>其是借助@Import的帮助将所有符合自动配置条件的bean定义加载到IoC容器，仅此而已！</p>
+<p>借助Spring原有的一个工具类：SpringFactoriesLoader的支持， @EnableAutoConfiguration才得以实现自动装配。</p>
+<h3 id="SpringFactoriesLoader详解"><a href="#SpringFactoriesLoader详解" class="headerlink" title="SpringFactoriesLoader详解"></a>SpringFactoriesLoader详解</h3><p>是属于Spring框架私有的一种扩展方案（类似Java的SPI），主要功能是从指定配置文件META-INF/spring.factories 加载配置。</p>
+<h2 id="SpringApplication"><a href="#SpringApplication" class="headerlink" title="SpringApplication"></a>SpringApplication</h2><p>其run()方法流程大体如下：</p>
+<ol>
+<li>静态run方法；在SpringApplication初始化时<ul>
+<li>根据classpath是否存在某个特征类（ConfigurableWebApplicationContext）决定应该创建一个为Web应用使用的ApplicationContext类型，还是创建一个标准Standalone应用使用的ApplicationContext类型</li>
+<li>使用SpringFactoriesLoader在应用的classpath中查找并加载可用ApplicationContextInitiaizer  及  ApplicationListener。</li>
+<li>推断并设置main方法的定义类</li>
+</ul>
+</li>
+<li>执行run方法逻辑。首先便利通过SpringFactoriesLoader加载的SpringApplicationRunListener，调用它们的started();</li>
+<li>创建并配置当前SpringBoot将使用的Environment（PropertySource 及 Profile）</li>
+<li>遍历SpringApplicationRunListener的environmentPrepared()方法，通知当前SpringBoot应用使用的Environment准备好了。</li>
+<li>如果SpringApplication的showBanner属性为true，则打印banner。Just for fun</li>
+<li>根据是否明确设置了applicationContextClass类型，决定创建什么类型的ApplicationContext，决定是否添加shutdownHook，决定是否使用自定义的BeanNameGenerator，决定是否使用自定义的ResourceLoader。并将之前的Environment设置给创建好的ApplicationContext使用。</li>
+<li>ApplicationContext创建好后，查找可用ApplicationContextInitializer，遍历并调用其initialize()方法进一步处理</li>
+<li>遍历SpringApplicationRunListener的contextPrepared()方法，通知当前SpringBoot应用使用的ApplicationContext准备好了。</li>
+<li>核心一步：将之前@EnableAutoConfiguration获取的所有配置加载到ApplicationContext</li>
+<li>遍历SpringApplicationRunListener的contextLoaded()方法，通知ApplicationContext装填完成。</li>
+<li>调用ApplicationContext到refresh()方法。IoC容器可用</li>
+<li>查找是否注册有CommandLineRunner，有则遍历</li>
+<li>遍历SpringApplicationRunListener的finished()方法</li>
+</ol>
+<p>启动完毕。可见大量工作是通过扩展点完成的。</p>
+<h2 id="SpringApplicationRunListener"><a href="#SpringApplicationRunListener" class="headerlink" title="SpringApplicationRunListener"></a>SpringApplicationRunListener</h2><p>是main方执行过程中执行事件通知的监听者。</p>
+<h2 id="自动配置"><a href="#自动配置" class="headerlink" title="自动配置"></a>自动配置</h2><p>基于@EnableAutoConfiguration的自动配置通过配合比如基于条件的配置或调整加载顺序，可以对自动配置进行更加细粒度的调整控制。</p>
+<h3 id="基于条件的自动配置"><a href="#基于条件的自动配置" class="headerlink" title="基于条件的自动配置"></a>基于条件的自动配置</h3><p>基于Spring框架“基于条件的配置”这一特性。我们可以使用@Conditional配合@Configuration或@Bean来干预一个配置或bean定义是否生效</p>
+<p>只要通过@Conditional指向自己的Condition实现类就可以了</p>
+<p>@Conditional可以作为一个Meta Annotation来标注其他Annotation实现类，从而构建特色的复合Annotation。SpringBoot 的autoconfigure模块就基于这一特性，实现了一批Annotation：@ConditionalOnClass，@ConditionalOnBean …</p>
+<p>SpringBoot提供的一系列自动配置的依赖模块，就是基于@Conditional复合Annotation实现的。</p>
+<h3 id="自动配置的顺序"><a href="#自动配置的顺序" class="headerlink" title="自动配置的顺序"></a>自动配置的顺序</h3><p>@AutoConfigureBefore，@AutoConfigureAfter</p>
 
       
     </div>
@@ -433,8 +423,8 @@ local 对当前仓库的,从优先来说，local最高,其次是global ,由于�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/08/test1/" rel="next" title="test1">
-                <i class="fa fa-chevron-left"></i> test1
+              <a href="/2018/06/25/boot之一：静态页面配置及打包/" rel="next" title="boot之一：静态页面配置及打包">
+                <i class="fa fa-chevron-left"></i> boot之一：静态页面配置及打包
               </a>
             
           </div>
@@ -442,10 +432,6 @@ local 对当前仓库的,从优先来说，local最高,其次是global ,由于�
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/11/hexo博客搭建及更新操作步骤/" rel="prev" title="hexo博客搭建及更新操作步骤">
-                hexo博客搭建及更新操作步骤 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -565,7 +551,7 @@ local 对当前仓库的,从优先来说，local最高,其次是global ,由于�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#清除git的全局设置"><span class="nav-number">1.</span> <span class="nav-text">清除git的全局设置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建-SSH密钥"><span class="nav-number">2.</span> <span class="nav-text">创建 SSH密钥</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置-ssh-config文件"><span class="nav-number">3.</span> <span class="nav-text">配置~/.ssh/config文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#验证连接Git"><span class="nav-number">4.</span> <span class="nav-text">验证连接Git</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#添加公钥到Git账号的SSH设置中"><span class="nav-number">5.</span> <span class="nav-text">添加公钥到Git账号的SSH设置中</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设置目录"><span class="nav-number">6.</span> <span class="nav-text">设置目录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设置全局"><span class="nav-number">7.</span> <span class="nav-text">设置全局</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#git配置的三个级别"><span class="nav-number">8.</span> <span class="nav-text">git配置的三个级别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#补充（20180716）"><span class="nav-number">9.</span> <span class="nav-text">补充（20180716）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring框架的本质"><span class="nav-number">1.</span> <span class="nav-text">Spring框架的本质</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-IoC（Inversion-Of-Control）"><span class="nav-number">1.1.</span> <span class="nav-text">Spring IoC（Inversion Of Control）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaConfig"><span class="nav-number">1.2.</span> <span class="nav-text">JavaConfig</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他Annotation"><span class="nav-number">1.3.</span> <span class="nav-text">其他Annotation</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SpringBoot工作机制"><span class="nav-number">2.</span> <span class="nav-text">SpringBoot工作机制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#初体验"><span class="nav-number">2.1.</span> <span class="nav-text">初体验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringBootApplication"><span class="nav-number">2.2.</span> <span class="nav-text">@SpringBootApplication</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringBootConfiguration"><span class="nav-number">2.3.</span> <span class="nav-text">@SpringBootConfiguration</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EnableAutoConfiguration"><span class="nav-number">2.4.</span> <span class="nav-text">@EnableAutoConfiguration</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringFactoriesLoader详解"><span class="nav-number">2.4.1.</span> <span class="nav-text">SpringFactoriesLoader详解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringApplication"><span class="nav-number">2.5.</span> <span class="nav-text">SpringApplication</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringApplicationRunListener"><span class="nav-number">2.6.</span> <span class="nav-text">SpringApplicationRunListener</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自动配置"><span class="nav-number">2.7.</span> <span class="nav-text">自动配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基于条件的自动配置"><span class="nav-number">2.7.1.</span> <span class="nav-text">基于条件的自动配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自动配置的顺序"><span class="nav-number">2.7.2.</span> <span class="nav-text">自动配置的顺序</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
