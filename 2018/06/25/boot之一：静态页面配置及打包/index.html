@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="Spirng boot 经常只用来部署服务，最近需要在项目中添加静态H5页面，发现并没有那么顺利，所以整理一下">
+<meta name="description" content="Spirng boot 经常只用来部署服务，如何在项目中添加静态H5页面呢？  首先添加spring-boot-starter-web依赖，然后在application.properties中设置内置tomcat启动端口  1server.port=8000  然后只需要main下新建webapp目录，目录下新建index.html文件 然后启动项目可 此时访问端口默认打开的就是index.htm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="boot之一：静态页面配置及打包">
 <meta property="og:url" content="https://e3gs.github.io/2018/06/25/boot之一：静态页面配置及打包/index.html">
 <meta property="og:site_name" content="HOLY">
-<meta property="og:description" content="Spirng boot 经常只用来部署服务，最近需要在项目中添加静态H5页面，发现并没有那么顺利，所以整理一下">
+<meta property="og:description" content="Spirng boot 经常只用来部署服务，如何在项目中添加静态H5页面呢？  首先添加spring-boot-starter-web依赖，然后在application.properties中设置内置tomcat启动端口  1server.port=8000  然后只需要main下新建webapp目录，目录下新建index.html文件 然后启动项目可 此时访问端口默认打开的就是index.htm">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-25T08:32:13.449Z">
+<meta property="og:updated_time" content="2018-07-25T07:29:48.520Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="boot之一：静态页面配置及打包">
-<meta name="twitter:description" content="Spirng boot 经常只用来部署服务，最近需要在项目中添加静态H5页面，发现并没有那么顺利，所以整理一下">
+<meta name="twitter:description" content="Spirng boot 经常只用来部署服务，如何在项目中添加静态H5页面呢？  首先添加spring-boot-starter-web依赖，然后在application.properties中设置内置tomcat启动端口  1server.port=8000  然后只需要main下新建webapp目录，目录下新建index.html文件 然后启动项目可 此时访问端口默认打开的就是index.htm">
 
 
 
@@ -343,7 +343,19 @@
       
 
       
-        <p>Spirng boot 经常只用来部署服务，最近需要在项目中添加静态H5页面，发现并没有那么顺利，所以整理一下</p>
+        <p>Spirng boot 经常只用来部署服务，如何在项目中添加静态H5页面呢？</p>
+<ul>
+<li>首先添加<code>spring-boot-starter-web</code>依赖，然后在<code>application.properties</code>中设置内置tomcat启动端口</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">server.port=8000</span><br></pre></td></tr></table></figure>
+<ul>
+<li>然后只需要main下新建<code>webapp</code>目录，目录下新建<code>index.html</code>文件</li>
+<li>然后启动项目可</li>
+<li>此时访问端口默认打开的就是index.html。如需修改，可自定义controller中<code>/</code>路径的指向文件。</li>
+</ul>
+<p>是不是很简单</p>
+<p><strong>唯一要注意的是打包的时候要把静态文件放到<code>META-INF/resources</code>目录下,如下</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;build&gt;</span><br><span class="line">    &lt;resources&gt;</span><br><span class="line">        &lt;resource&gt;</span><br><span class="line">            &lt;directory&gt;$&#123;basedir&#125;/src/main/webapp&lt;/directory&gt;</span><br><span class="line">            &lt;!--注意此次必须要放在此目录下才能被访问到--&gt;</span><br><span class="line">            &lt;targetPath&gt;META-INF/resources&lt;/targetPath&gt;</span><br><span class="line">            &lt;includes&gt;</span><br><span class="line">                &lt;include&gt;**/**&lt;/include&gt;</span><br><span class="line">            &lt;/includes&gt;</span><br><span class="line">        &lt;/resource&gt;</span><br><span class="line">        &lt;resource&gt;</span><br><span class="line">            &lt;directory&gt;$&#123;basedir&#125;/src/main/resources&lt;/directory&gt;</span><br><span class="line">            &lt;includes&gt;</span><br><span class="line">                &lt;include&gt;**/**&lt;/include&gt;</span><br><span class="line">            &lt;/includes&gt;</span><br><span class="line">        &lt;/resource&gt;</span><br><span class="line">    &lt;/resources&gt;</span><br><span class="line">&lt;/build&gt;</span><br></pre></td></tr></table></figure>
 
       
     </div>

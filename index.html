@@ -472,9 +472,14 @@ Spring IoC指的是Spring框架提供的IoC容器实现（IoC Container）
       
         
           
-          Spirng boot 经常只用来部署服务，最近需要在项目中添加静态H5页面，发现并没有那么顺利，所以整理一下
+          Spirng boot 经常只用来部署服务，如何在项目中添加静态H5页面呢？
 
-          
+首先添加spring-boot-starter-web依赖，然后在application.properties中设置内置tomcat启动端口
+
+1server.port=8000
+
+然后只需要main下新建webapp目
+          ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/06/25/boot之一：静态页面配置及打包/#more" rel="contents">

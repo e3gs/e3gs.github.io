@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="HOLY">
 <meta property="og:description" content="Spring框架的本质Spring IoC（Inversion Of Control）IoC有两种形式，DI（Dependency Injection）和DL(Dependency Lookup) Spring IoC指的是Spring框架提供的IoC容器实现（IoC Container） 常用的类似context.getBean(...)，做的就是DL的工作。 Spring IoC容器的DI工作">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-18T03:21:01.217Z">
+<meta property="og:updated_time" content="2018-07-25T07:30:04.941Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Boot基础知识">
 <meta name="twitter:description" content="Spring框架的本质Spring IoC（Inversion Of Control）IoC有两种形式，DI（Dependency Injection）和DL(Dependency Lookup) Spring IoC指的是Spring框架提供的IoC容器实现（IoC Container） 常用的类似context.getBean(...)，做的就是DL的工作。 Spring IoC容器的DI工作">
@@ -362,7 +362,7 @@
 <li>@Import和@ImportResource,用于将多个分开的容器配置合到一个配置中</li>
 </ol>
 <h1 id="SpringBoot工作机制"><a href="#SpringBoot工作机制" class="headerlink" title="SpringBoot工作机制"></a>SpringBoot工作机制</h1><p>SpringBoot 是Spring框架对“约定优于配置（Convention Over Configuration）”理念的最佳实践的产物。<br>一个SpringBoot应用就是一个基于Spring框架的应用。</p>
-<h2 id="初体验"><a href="#初体验" class="headerlink" title="初体验"></a>初体验</h2><p>一个SpringBoot启动类代码如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;</span><br><span class="line"></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Starter</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(Starter.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="初体验"><a href="#初体验" class="headerlink" title="初体验"></a>初体验</h2><p>一个SpringBoot启动类代码如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;</span><br><span class="line"></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Starter</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(Starter.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>下面分析其中@SpringBootApplication和SpringApplication.run</p>
 <h2 id="SpringBootApplication"><a href="#SpringBootApplication" class="headerlink" title="@SpringBootApplication"></a>@SpringBootApplication</h2><p>@SpringBootApplication实际是一个复合Annotation，<br>其中重要的只有三个：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootConfiguration</span></span><br><span class="line"><span class="meta">@EnableAutoConfiguration</span></span><br><span class="line"><span class="meta">@ComponentScan</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="SpringBootConfiguration"><a href="#SpringBootConfiguration" class="headerlink" title="@SpringBootConfiguration"></a>@SpringBootConfiguration</h2><p>启动类标注了@Configuration，所以其也是一个IoC容器配置类。</p>
@@ -399,6 +399,71 @@
 <p>@Conditional可以作为一个Meta Annotation来标注其他Annotation实现类，从而构建特色的复合Annotation。SpringBoot 的autoconfigure模块就基于这一特性，实现了一批Annotation：@ConditionalOnClass，@ConditionalOnBean …</p>
 <p>SpringBoot提供的一系列自动配置的依赖模块，就是基于@Conditional复合Annotation实现的。</p>
 <h3 id="自动配置的顺序"><a href="#自动配置的顺序" class="headerlink" title="自动配置的顺序"></a>自动配置的顺序</h3><p>@AutoConfigureBefore，@AutoConfigureAfter</p>
+<h1 id="Spring-boot-starter"><a href="#Spring-boot-starter" class="headerlink" title="Spring-boot-starter"></a>Spring-boot-starter</h1><p>SpringBoot影响2个层面：</p>
+<ol>
+<li>基于Spring框架的“约定优于配置（COC）”理念的最佳实践。</li>
+<li>提供各种场景的Spring-boot-starter自动配置依赖模块。</li>
+</ol>
+<p>所有starter都有预定俗成的默认配置，但允许调整。</p>
+<p>对SpringBoot行为进行干预配置方式分为几类（优先级从高到底）：</p>
+<ul>
+<li>命令行参数（Command Line Args）</li>
+<li>系统环境变量（Environment Variables）</li>
+<li>文件系统中配置文件</li>
+<li>classpath中配置文件</li>
+<li>代码中配置项</li>
+</ul>
+<h2 id="spring-boot-starter-logging"><a href="#spring-boot-starter-logging" class="headerlink" title="spring-boot-starter-logging"></a>spring-boot-starter-logging</h2><p>Java日志系统，从java.util默认提供的日志支持，到log4j，log4j2，commons logging等。<br>spring-boot-starter-logging也比较特殊。如果添加了其依赖，将自动使用<strong>logback</strong>作为应用日志框架。</p>
+<p>添加依赖即可使用，如需调整：</p>
+<ol>
+<li>遵循logback约定，在classpath中使用自定制的logback.xml配置文件。</li>
+<li>在任意位置提供自己的logback.xml文件，在通过logging.config配置项指向这个配置文件来启动它，比如在application.properties中指定</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">logging.config=&#123;path&#125;/logfile-name.log</span><br></pre></td></tr></table></figure>
+<p>我们可以在配置文件中通过logging.file 和logging.path来定义文件名称和存放路径。但，如果希望更灵活的配置，可以提供框架配置文件，通过logging.config来启用。</p>
+<p>同样，如果希望使用log4j等，可以使用对应的starter添加依赖：spring-boot-starter-log4j</p>
+<p>但，不要将完成同一目的的starter都添加到依赖中。</p>
+<h2 id="spring-boot-starter-web"><a href="#spring-boot-starter-web" class="headerlink" title="spring-boot-starter-web"></a>spring-boot-starter-web</h2><p>添加了依赖的web应用，运行mvn spring-boot:run 就可以启动一个使用了嵌入式tomcat服务请求的Web应用。</p>
+<p>关于spring-boot-starter-web的一些约定：</p>
+<h3 id="项目结构层面"><a href="#项目结构层面" class="headerlink" title="项目结构层面"></a>项目结构层面</h3><p>与传统打包为war的java web应用差异在于，静态文件和页面模版的存放位置改变，原来统一放在src/main/webapp目录下，现在统一放在src/main/rsources目录下：</p>
+<ol>
+<li>src/main/rsources/static用于存放静态资源</li>
+<li>src/main/rsources/templates用于存放模版文件</li>
+</ol>
+<p><em>当然，也可以继续使用原来的项目结构</em></p>
+<h3 id="springMVC框架层面的约定和定制"><a href="#springMVC框架层面的约定和定制" class="headerlink" title="springMVC框架层面的约定和定制"></a>springMVC框架层面的约定和定制</h3><p>spring-boot-starter-web自动配置了一些组件，我们可以在IoC容器中注册新的同类型bean来替换。</p>
+<ul>
+<li>WebMvcConfigurerAdapter</li>
+<li>@EnableWebMvc</li>
+</ul>
+<h3 id="嵌入式Web容器层面"><a href="#嵌入式Web容器层面" class="headerlink" title="嵌入式Web容器层面"></a>嵌入式Web容器层面</h3><p>默认使用嵌入式tomcat。</p>
+<ul>
+<li>可以使用其他Web容器，如通过引入 spring-boot-starter-jetty作为替代。</li>
+<li>可以通过配置项server.port 使用指定端口如：server.port=9000</li>
+</ul>
+<p>提供了很多以server.为前缀的配置项用于Web容器配置。</p>
+<p>如果仍不满足，可以直接对嵌入式Web容器进行定制，可以通过项IoC容器中注册一个EmbeddedServletContainerCustomizer类型的组件来对嵌入式Web容器进行定制。</p>
+<p>再深入的定制则需要针对指定的嵌入式Web容器，实现对应的Factory并注册到IoC容器（<em>不过一般没有必要</em>）：</p>
+<ul>
+<li>TomcatEmbeddedServletContainerFactory</li>
+</ul>
+<h2 id="spring-boot-starter-jdbc"><a href="#spring-boot-starter-jdbc" class="headerlink" title="spring-boot-starter-jdbc"></a>spring-boot-starter-jdbc</h2><p>如果没有配置DataSource，SpringBoot会自动配置一个基于嵌入式数据库的DataSource。</p>
+<p>只依赖一个数据库，使用配置参数：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">spring.datasource.url=jdbc:mysql://&#123;host&#125;:3306/&#123;databaseName&#125;</span><br><span class="line">spring.datasource.username=&#123;&#125;</span><br><span class="line">spring.datasource.password=&#123;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>当然还可以自己配置一个DataSource。</p>
+<p>SpringBoot还会自动配置相应的JdbcTemplate、DataSourceTransactionManager等，可以直接注入使用。</p>
+<p>配置多个数据库时可以配置多个DataSource，但在启动时要排除掉默认提供的DataSource相关自动配置。也可以通过为其中一个添加@Primary的Annotation的方式解决。</p>
+<h2 id="spring-boot-starter-aop"><a href="#spring-boot-starter-aop" class="headerlink" title="spring-boot-starter-aop"></a>spring-boot-starter-aop</h2><p>AOP <em>Aspect Oriented Programing</em></p>
+<p>Java平台上AOP方案基本以SpringAOP结合AspectJ方式稳固下来。</p>
+<p>spring-boot-starter-aop自动配置由两部分内容组成：</p>
+<ol>
+<li>@AopAutoConfiguration提供相关配置项</li>
+<li>自身提供了针对spring-aop、aspectjrt和aspectjweaver的依赖。</li>
+</ol>
+<p>AopAutoConfiguration提供了两个配置项：</p>
+<ul>
+<li>spring.aop.auto=true</li>
+<li>spring.aop.proxy-targer-class=false</li>
+</ul>
 
       
     </div>
@@ -551,7 +616,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring框架的本质"><span class="nav-number">1.</span> <span class="nav-text">Spring框架的本质</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-IoC（Inversion-Of-Control）"><span class="nav-number">1.1.</span> <span class="nav-text">Spring IoC（Inversion Of Control）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaConfig"><span class="nav-number">1.2.</span> <span class="nav-text">JavaConfig</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他Annotation"><span class="nav-number">1.3.</span> <span class="nav-text">其他Annotation</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SpringBoot工作机制"><span class="nav-number">2.</span> <span class="nav-text">SpringBoot工作机制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#初体验"><span class="nav-number">2.1.</span> <span class="nav-text">初体验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringBootApplication"><span class="nav-number">2.2.</span> <span class="nav-text">@SpringBootApplication</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringBootConfiguration"><span class="nav-number">2.3.</span> <span class="nav-text">@SpringBootConfiguration</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EnableAutoConfiguration"><span class="nav-number">2.4.</span> <span class="nav-text">@EnableAutoConfiguration</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringFactoriesLoader详解"><span class="nav-number">2.4.1.</span> <span class="nav-text">SpringFactoriesLoader详解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringApplication"><span class="nav-number">2.5.</span> <span class="nav-text">SpringApplication</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringApplicationRunListener"><span class="nav-number">2.6.</span> <span class="nav-text">SpringApplicationRunListener</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自动配置"><span class="nav-number">2.7.</span> <span class="nav-text">自动配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基于条件的自动配置"><span class="nav-number">2.7.1.</span> <span class="nav-text">基于条件的自动配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自动配置的顺序"><span class="nav-number">2.7.2.</span> <span class="nav-text">自动配置的顺序</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring框架的本质"><span class="nav-number">1.</span> <span class="nav-text">Spring框架的本质</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-IoC（Inversion-Of-Control）"><span class="nav-number">1.1.</span> <span class="nav-text">Spring IoC（Inversion Of Control）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaConfig"><span class="nav-number">1.2.</span> <span class="nav-text">JavaConfig</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他Annotation"><span class="nav-number">1.3.</span> <span class="nav-text">其他Annotation</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SpringBoot工作机制"><span class="nav-number">2.</span> <span class="nav-text">SpringBoot工作机制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#初体验"><span class="nav-number">2.1.</span> <span class="nav-text">初体验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringBootApplication"><span class="nav-number">2.2.</span> <span class="nav-text">@SpringBootApplication</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringBootConfiguration"><span class="nav-number">2.3.</span> <span class="nav-text">@SpringBootConfiguration</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EnableAutoConfiguration"><span class="nav-number">2.4.</span> <span class="nav-text">@EnableAutoConfiguration</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringFactoriesLoader详解"><span class="nav-number">2.4.1.</span> <span class="nav-text">SpringFactoriesLoader详解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringApplication"><span class="nav-number">2.5.</span> <span class="nav-text">SpringApplication</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringApplicationRunListener"><span class="nav-number">2.6.</span> <span class="nav-text">SpringApplicationRunListener</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自动配置"><span class="nav-number">2.7.</span> <span class="nav-text">自动配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基于条件的自动配置"><span class="nav-number">2.7.1.</span> <span class="nav-text">基于条件的自动配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自动配置的顺序"><span class="nav-number">2.7.2.</span> <span class="nav-text">自动配置的顺序</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-boot-starter"><span class="nav-number">3.</span> <span class="nav-text">Spring-boot-starter</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#spring-boot-starter-logging"><span class="nav-number">3.1.</span> <span class="nav-text">spring-boot-starter-logging</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spring-boot-starter-web"><span class="nav-number">3.2.</span> <span class="nav-text">spring-boot-starter-web</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#项目结构层面"><span class="nav-number">3.2.1.</span> <span class="nav-text">项目结构层面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#springMVC框架层面的约定和定制"><span class="nav-number">3.2.2.</span> <span class="nav-text">springMVC框架层面的约定和定制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#嵌入式Web容器层面"><span class="nav-number">3.2.3.</span> <span class="nav-text">嵌入式Web容器层面</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spring-boot-starter-jdbc"><span class="nav-number">3.3.</span> <span class="nav-text">spring-boot-starter-jdbc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spring-boot-starter-aop"><span class="nav-number">3.4.</span> <span class="nav-text">spring-boot-starter-aop</span></a></li></ol></li></ol></div>
             
 
           </div>
