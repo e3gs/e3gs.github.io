@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[flask基础]]></title>
+    <url>%2F2018%2F12%2F24%2Fflask%E5%9F%BA%E7%A1%80%2F</url>
+    <content type="text"></content>
+      <tags>
+        <tag>flask</tag>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Java服务调用及结果解析]]></title>
     <url>%2F2018%2F08%2F27%2FJava%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8%E5%8F%8A%E7%BB%93%E6%9E%9C%E8%A7%A3%E6%9E%90%2F</url>
     <content type="text"></content>
